@@ -1,0 +1,21 @@
+Clear Migration Files If Found
+
+Open Package manager console 
+
+1- select from default project DropDown Data Access Layer
+2- write these commands :
+
+  add-migration -inti
+  update -database
+
+ 2- Open Website and Login with"
+  email :Madmin@gmail.com
+  pass: As123456+
+
+  3- Add Employee User By Admin
+  4- Create First Items By Admin 
+  5-log out 
+  6- Login with  User Uou Added 
+  7 -you can buy items and sell items and valuate Envintory
+
+  
