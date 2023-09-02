@@ -1,0 +1,78 @@
+﻿@model StorePro.ViewModels.ValuationInputs
+
+
+@{
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+
+    ViewData["Title"] = "Inventory Valuation";
+}
+
+<h1>Valuation</h1>
+
+<h4>ValuationInputs</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Valuation" asp-controller="InventoryValuation" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @Html.AntiForgeryToken()
+
+            @foreach (Enum value in Enum.GetValues(Model.ValuationMethod.GetType()))
+            {
+              
+                <div class="checkbox">
+                    @Html.RadioButton("ValuationMethod", value, value.Equals(Model), new { value })
+                    @Html.Label(value.ToString(),value.ToString())
+                </div>
+            }
+            <br />
+            <br />
+
+            <div class="form-group">
+                <input type="submit" value="Calculate" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<hr />
+  @if (ViewBag.ValuationRes != null)
+        {
+<div class="row">
+
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4" >
+
+      
+    
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Total Pofit</th>
+                        <th scope="col">Total Orders Mony</th>
+                        <th scope="col">Total Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <td> @ViewBag.ValuationRes  </td>
+                    <td>    @ViewBag.TotalMony </td>
+                    <td>    @ViewBag.TotalCost </td>
+                    </tr>                
+                </tbody>
+                </table>
+
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
+
+
+        }
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
